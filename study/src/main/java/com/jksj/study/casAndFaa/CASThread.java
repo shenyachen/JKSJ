@@ -1,10 +1,9 @@
 package com.jksj.study.casAndFaa;
 
 import org.apache.commons.lang3.time.StopWatch;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+
+import java.util.LinkedList;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -39,5 +38,7 @@ public class CASThread implements Runnable{
         latch.await();
         System.out.println(atomicInteger.get());
         System.out.println("消耗：" + stopWatch.getTime() + "ms");
+        LinkedList<String> list = new LinkedList<>();
+        CompletableFuture.runAsync(() -> new Object());
     }
 }
